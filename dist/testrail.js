@@ -144,7 +144,7 @@ var TestRail = /** @class */ (function () {
     // This function will attach failed screenshot on each test result(comment) if founds it
     TestRail.prototype.uploadScreenshots = function (caseId, resultId, _path) {
         var _this = this;
-        var SCREENSHOTS_FOLDER_PATH = _path.replace('integration','screenshots');
+        var SCREENSHOTS_FOLDER_PATH = _path.replace(/e2e\/.*\//g,'screenshots/');
 
         fs.readdir(SCREENSHOTS_FOLDER_PATH, function (err, files) {
             if (err) {
@@ -183,9 +183,9 @@ var TestRail = /** @class */ (function () {
     };
     TestRail.prototype.uploadVideos = function (caseId, resultId, _path) {
         var _this = this;
-        var vPath = _path.replace('integration','videos');
-        var VIDEOS_FOLDER_PATH = vPath.replace(/([^\/]*js)$/g, '');
-        var vidName = vPath.slice(vPath.lastIndexOf('/')).replace('/','');
+        var VIDEOS_FOLDER_PATH = _path.replace(/e2e\/.*/g,'videos/');
+        var vidName = _path.replace(/.*\//g,'');
+
 
         const { fork } = require('child_process');
         const child = fork(__dirname + '/publishVideo.js', {
