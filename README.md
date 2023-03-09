@@ -4,6 +4,9 @@
 [![MIT License](https://img.shields.io/github/license/Vivify-Ideas/cypress-testrail-reporter.svg)](https://github.com/Mkona055/cypress-testrail-reporter/blob/master/LICENSE.md)
 
 Publishes [Cypress](https://www.cypress.io/) runs on TestRail.
+### Bug fixes
+
+- Users migrating to Cypress 10 can now export screenshots and videos
 
 ### New Features
 - Possibility to upload videos for failed test cases - optional (**allowOnFailureVideoUpload: true**)
